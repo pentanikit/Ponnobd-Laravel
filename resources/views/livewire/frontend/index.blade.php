@@ -26,14 +26,14 @@
                     @isset($galleries[0])
                     <div class="col-md-6">
                         <div class="hero-right--thumb radius--8 overflow--hidden">
-                            <img class="fit--img" src="{{ uploadedFile($galleries[0]) }}" alt="Gallery">
+                            <img class="fit--img"  src="{{ uploadedFile($galleries[0]) }}" alt="Gallery">    
                         </div>
                     </div>
                     @endisset
                     <div class="col-md-6">
                         @isset($galleries[1])
                         <div class="hero-left--thumb mb-3 radius--8 overflow--hidden">
-                            <img class="fit--img" src="{{ uploadedFile($galleries[1]) }}" alt="Gallery">
+                            <img  style="width: 100%; height:277px" src="{{ uploadedFile($galleries[1]) }}" alt="Gallery">
                         </div>
                         @endisset
                         <div class="row">
