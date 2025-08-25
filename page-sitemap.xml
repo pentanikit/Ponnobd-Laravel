@@ -1,0 +1,27 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.ponnobd.com/</loc>
+<priority>1</priority>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://ponnobd.com/about-us</loc>
+<priority>.5</priority>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://ponnobd.com/page/privacy-policy</loc>
+<priority>.5</priority>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://ponnobd.com/page/terms-and-conditions</loc>
+<priority>.5</priority>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://ponnobd.com/contact-us</loc>
+<priority>.5</priority>
+<changefreq>weekly</changefreq>
+</url>
+</urlset>

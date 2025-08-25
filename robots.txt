@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /*?shopvar=
+Disallow: /*?shopvar0=
+Disallow: /*?add_to_wishlist=
+Disallow: /*?remove_item=
+Disallow: /*?display_mode=
+Disallow: /*?display_mode=
+Disallow: /*?post_type=product&product_order=
+Disallow: /*?shopvar=
+
+sitemap: https://ponnobd.com/sitemap.xml
