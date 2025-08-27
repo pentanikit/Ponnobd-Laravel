@@ -35,7 +35,7 @@ class SendOrderEmails
         }
 
         // Send alert to admin
-        $adminEmail = config('shop.admin_email', env('ORDER_ADMIN_EMAIL'));
+        $adminEmail = config(env('ORDER_ADMIN_EMAIL'));
         if ($adminEmail) {
             Mail::to($adminEmail)->queue(new AdminNewOrderMail($order));
         }
