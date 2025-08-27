@@ -1,13 +1,13 @@
 @component('mail::message')
 # New Order Received
 
-**Order:** #{{ $order->order_number ?? $order->id }}  
-**Customer:** {{ $order->billing_name ?? optional($order->user)->name ?? 'N/A' }}  
-**Email:** {{ $order->email ?? optional($order->user)->email ?? 'N/A' }}  
-**Phone:** {{ $order->billing_phone ?? $order->shipping_phone ?? 'N/A' }}
+**Order:** #{{ $order->code ?? $order->id }}  
+**Customer:** {{ data_get($order->billing, 'full_name', optional($order->user)->name) ?? 'N/A' }}  
+**Email:** {{ $order->email ?? optional($order->user)->email ?? data_get($order->billing,'email','N/A') }}  
+**Phone:** {{ data_get($order->billing, 'phone', 'N/A') }}
 
 @php
-    $lines = $order->items ?? collect();
+    $lines = $order->orderDetails;  // ✅ or $order->items
     $subtotal = 0;
 @endphp
 
@@ -18,7 +18,7 @@
 @php
     $name = $item->product->name ?? $item->name ?? 'Item';
     $sku  = $item->product->sku ?? $item->sku ?? '—';
-    $qty  = $item->qty ?? $item->quantity ?? 1;
+    $qty  = $item->quantity ?? $item->qty ?? 1;
     $unit = $item->price ?? $item->unit_price ?? 0;
     $line = $qty * $unit;
     $subtotal += $line;

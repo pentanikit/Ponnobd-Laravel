@@ -4,40 +4,42 @@ namespace App\Listeners;
 
 use App\Events\OrderPlaced;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminNewOrderMail;
 use App\Mail\OrderReceiptMail;
 
-class SendOrderEmails
+class SendOrderEmails implements ShouldQueue
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
+    public bool $afterCommit = true; // safe if orders are created in transactions
 
-    /**
-     * Handle the event.
-     */
     public function handle(OrderPlaced $event): void
     {
-        // Eager load relations used in emails
-        $order = $event->order->loadMissing(['items.product', 'user']);
+        $order = $event->order->loadMissing(['orderDetails.product','user']); // ✅
 
-        // Send receipt to customer
-        $customerEmail = $order->email ?? optional($order->user)->email;
+        $billing = $order->billing ?? [];
+        $customerEmail = $order->email
+            ?? optional($order->user)->email
+            ?? ($billing['email'] ?? null);
+
+        Log::info('SendOrderEmails recipients', [
+            'order_id'      => $order->id,
+            'order_email'   => $order->email ?? null,
+            'user_email'    => optional($order->user)->email,
+            'billing_email' => $billing['email'] ?? null,
+        ]);
+
         if ($customerEmail) {
-            Mail::to($customerEmail)->queue(new OrderReceiptMail($order));
-            // If you don't want queues, use ->send(...) instead of ->queue(...)
+            Mail::to($customerEmail)->send(new OrderReceiptMail($order));
+        } else {
+            Log::warning('No customer email for order', ['order_id' => $order->id]);
         }
 
-        // Send alert to admin
-        $adminEmail = config(env('ORDER_ADMIN_EMAIL'));
+        $adminEmail = env('ORDER_ADMIN_EMAIL');
         if ($adminEmail) {
-            Mail::to($adminEmail)->queue(new AdminNewOrderMail($order));
+            Mail::to($adminEmail)->send(new AdminNewOrderMail($order));
+        } else {
+            Log::warning('No admin email configured (ORDER_ADMIN_EMAIL not set)');
         }
     }
 }
