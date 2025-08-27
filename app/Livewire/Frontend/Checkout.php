@@ -125,8 +125,9 @@ class Checkout extends Component
 
             DB::commit();
 
-            $emails = explode(',',settings('order_placed_emails'));
-            Mail::to($emails)->send(new OrderPlacedMail($order));
+            // $emails = explode(',',settings('order_placed_emails'));
+            // Mail::to($emails)->send(new OrderPlacedMail($order));
+            event(new OrderPlaced($order));
 
             return $this->redirect(route('order.success', encrypt($order->id)));
 

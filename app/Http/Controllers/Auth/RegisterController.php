@@ -64,16 +64,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $username = User::where('username', str($data['email'])->before('@'))->first() ? str($data['email'])->before('@') : str($data['email'])->before('@').mt_rand(1, 5);
-
-        $user = User::create([
+        SendWelcomeEmail::dispatch($user->email, $user->name);
+        return User::create([
             'name' => $data['name'],
             'username' => $username,
             'user_type' => 'customer',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        SendWelcomeEmail::dispatch($user->email, $user->name);
+        
 
-        return back()->with('status', 'User created—email will be sent shortly.');
+        
     }
 }
