@@ -38,6 +38,9 @@ class WelcomeMail extends Mailable
     {
         return new Content(
             markdown: 'emails.welcome',
+            with: [
+                'name' => $this->name,
+            ],
         );
     }
 
