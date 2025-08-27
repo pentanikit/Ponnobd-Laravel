@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         @isset($galleries[1])
                         <div class="hero-left--thumb mb-3 radius--8 overflow--hidden">
-                            <img  style="width: 100%; height:277px" src="{{ uploadedFile($galleries[1]) }}" alt="Gallery">
+                            <img  style="width: 100%; height:280px" src="{{ uploadedFile($galleries[1]) }}" alt="Gallery">
                         </div>
                         @endisset
                         <div class="row">
