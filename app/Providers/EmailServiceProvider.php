@@ -27,7 +27,7 @@ class EmailServiceProvider extends ServiceProvider
             $admin = config('mail.admin_address');
 
             if (!empty($admin)) {
-                Mail::to($admin)->queue(new AdminNewOrderMail($order));
+                Mail::to($admin)->send(new AdminNewOrderMail($order));
                 // Use ->send(...) if you don't have queues set up yet.
             }
         });
