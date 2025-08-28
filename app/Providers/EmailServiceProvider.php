@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Mail\AdminNewOrderMail;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class EmailServiceProvider extends ServiceProvider
 {
@@ -22,14 +24,22 @@ class EmailServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // When a new order is created, email the admin
-        Order::created(function (Order $order) {
-            $admin = config('mail.admin_address');
+        Log::info('[OrderMailSP] boot()');
 
-            if (!empty($admin)) {
-                Mail::to($admin)->send(new AdminNewOrderMail($order));
-                // Use ->send(...) if you don't have queues set up yet.
-            }
+        Order::created(function (Order $order) {
+            Log::info('[OrderMailSP] Order::created', ['order_id' => $order->id]);
+
+            DB::afterCommit(function () use ($order) {
+                Log::info('[OrderMailSP] afterCommit firing', ['order_id' => $order->id]);
+
+                try {
+                    // Use send() while debugging so queues don’t hide issues
+                    Mail::to(config('mail.admin_address'))->send(new AdminNewOrderMail($order));
+                    Log::info('[OrderMailSP] Mail sent', ['order_id' => $order->id]);
+                } catch (\Throwable $e) {
+                    Log::error('[OrderMailSP] Mail error', ['order_id' => $order->id, 'msg' => $e->getMessage()]);
+                }
+            });
         });
     }
 }
