@@ -13,12 +13,14 @@ class AdminNewOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public Order $order;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
-        //
+        $this->order = $order;
     }
 
     /**

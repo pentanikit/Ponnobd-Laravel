@@ -85,6 +85,8 @@ return [
                 'log',
             ],
         ],
+
+        'admin_address' => env('ADMIN_EMAIL', 'pentanikit2023@gmail.com'),
     ],
 
     /*

@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Frontend;
 
-use App\Mail\OrderPlacedMail;
+
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetails;
@@ -125,9 +125,7 @@ class Checkout extends Component
 
             DB::commit();
 
-            // $emails = explode(',',settings('order_placed_emails'));
-            // Mail::to($emails)->send(new OrderPlacedMail($order));
-            event(new OrderPlaced($order));
+
 
             return $this->redirect(route('order.success', encrypt($order->id)));
 
