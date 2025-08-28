@@ -12,8 +12,8 @@
 @endphp
 
 @component('mail::table')
-| Item (SKU) | Qty | Unit | Line Total |
-|:-----------|---:|----:|----------:|
+| Item (SKU) | Qty | Unit | Line | Total |
+|:-----------|---:-|----:-|------:------:|
 @foreach($lines as $item)
 @php
     $name = $item->product->name ?? $item->name ?? 'Item';
