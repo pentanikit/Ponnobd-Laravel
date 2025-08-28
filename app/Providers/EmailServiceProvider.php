@@ -34,7 +34,7 @@ class EmailServiceProvider extends ServiceProvider
 
                 try {
                     // Use send() while debugging so queues don’t hide issues
-                    Mail::queue(new AdminNewOrderMail($order));
+                    Mail::to(config('mail.admin_address'))->queue(new AdminNewOrderMail($order));
                     Log::info('[OrderMailSP] Mail sent', ['order_id' => $order->id]);
                 } catch (\Throwable $e) {
                     Log::error('[OrderMailSP] Mail error', ['order_id' => $order->id, 'msg' => $e->getMessage()]);
