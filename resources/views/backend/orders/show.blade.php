@@ -113,7 +113,7 @@ Orders
                                 </tr>
                                 <tr>
                                     <th class="fw-600">Shipping method:</th>
-                                    <td>{{ ucwords(str_replace('_',' ',$order->detail->first()?->shipping_type)) }}</td>
+                                    <td>{{ ucwords(str_replace('_',' ',$order->orderDetails->first()?->shipping_type)) }}</td>
                                 </tr>
                                 <tr>
                                     <th class="fw-600">Payment method:</th>
@@ -151,7 +151,7 @@ Orders
                                 $subtotal = 0;
                             @endphp
                             <tbody class="fs-14">
-                                @foreach ($order->detail as $detail)
+                                @foreach ($order->orderDetails as $detail)
                                 @php
                                     $variants = json_decode($detail->variation);
                                     $product = $detail->product;
