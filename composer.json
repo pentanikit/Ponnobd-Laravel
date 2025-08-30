@@ -18,7 +18,7 @@
         "opcodesio/log-viewer": "^3.1",
         "spatie/laravel-analytics": "^5.0",
         "spatie/laravel-permission": "^5.10",
-        "spatie/laravel-responsecache": "^7.4"
+        "spatie/laravel-responsecache": "^7.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",

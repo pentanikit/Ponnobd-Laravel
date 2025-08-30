@@ -23,6 +23,11 @@ class CacheResponse
         $this->responseCache = $responseCache;
     }
 
+    public static function using($lifetime, ...$tags): string
+    {
+        return static::class.':'.implode(',', [$lifetime, ...$tags]);
+    }
+
     public function handle(Request $request, Closure $next, ...$args): Response
     {
         $lifetimeInSeconds = $this->getLifetime($args);
@@ -121,7 +126,7 @@ class CacheResponse
     public function addCacheAgeHeader(Response $response): Response
     {
         if (config('responsecache.add_cache_age_header') and $time = $response->headers->get(config('responsecache.cache_time_header_name'))) {
-            $ageInSeconds = Carbon::parse($time)->diffInSeconds(Carbon::now());
+            $ageInSeconds = (int) Carbon::parse($time)->diffInSeconds(Carbon::now(), true);
 
             $response->headers->set(config('responsecache.cache_age_header_name'), $ageInSeconds);
         }

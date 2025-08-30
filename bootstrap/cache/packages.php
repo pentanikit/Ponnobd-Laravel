@@ -156,13 +156,13 @@
   ),
   'spatie/laravel-responsecache' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
-    ),
     'aliases' => 
     array (
       'ResponseCache' => 'Spatie\\ResponseCache\\Facades\\ResponseCache',
+    ),
+    'providers' => 
+    array (
+      0 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
     ),
   ),
 );

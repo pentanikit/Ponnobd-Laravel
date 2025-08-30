@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '423cc00176f731bb44cc5907c7ae26d36f17e9e6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -506,9 +506,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '423cc00176f731bb44cc5907c7ae26d36f17e9e6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1275,9 +1275,9 @@
             'dev_requirement' => false,
         ),
         'spatie/laravel-responsecache' => array(
-            'pretty_version' => '7.5.2',
-            'version' => '7.5.2.0',
-            'reference' => 'e69b3f3abc302a255e5b32c68303d41f09d38bd3',
+            'pretty_version' => '7.7.2',
+            'version' => '7.7.2.0',
+            'reference' => '039f8b9c2e2b2d838d0bfce32cfe52cf5d1cb8fc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/laravel-responsecache',
             'aliases' => array(),

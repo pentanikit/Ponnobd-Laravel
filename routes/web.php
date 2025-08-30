@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
+use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,15 +29,18 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 */
+Route::middleware(CacheResponse::class)->group(function () {
+    Route::get('/', Index::class)->name('home');
+    Route::get('shop', Shop::class)->name('shop');
+});
 
-Route::get('/', Index::class)->name('home');
 Route::get('/blog', Blog::class)->name('blog');
 Route::get('/blog/{slug}', BlogDetails::class)->name('blog.details');
 Route::get('page/{slug}', Page::class)->name('page');
 Route::get('about-us', AboutUs::class)->name('about.us');
 Route::get('contact-us', ContactUs::class)->name('contact.us');
 Route::get('wishlists', Wishlist::class)->name('wishlist');
-Route::get('shop', Shop::class)->name('shop');
+
 Route::get('cart', Cart::class)->name('cart');
 Route::get('checkout', Checkout::class)->name('checkout');
 Route::get('order/success/{order_id}', OrderSuccess::class)->name('order.success');

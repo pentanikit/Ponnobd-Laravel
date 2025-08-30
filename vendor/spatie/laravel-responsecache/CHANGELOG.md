@@ -2,6 +2,120 @@
 
 All notable changes to `laravel-responsecache` will be documented in this file.
 
+## 7.7.1 - 2025-07-17
+
+### What's Changed
+
+* Introduce using() method to conveniently define lifetime and tags by @kamilkozak in https://github.com/spatie/laravel-responsecache/pull/491
+
+### New Contributors
+
+* @kamilkozak made their first contribution in https://github.com/spatie/laravel-responsecache/pull/491
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.7.0...7.7.1
+
+## 7.7.0 - 2025-05-20
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 5.1.0 to 5.2.0 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/493
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/494
+* [8.0] Introduce `ClearingResponseCacheFailed` and return boolean by `clear()` by @alies-dev in https://github.com/spatie/laravel-responsecache/pull/495
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.5...7.7.0
+
+## 7.6.5 - 2025-04-10
+
+### What's Changed
+
+* fix DocBlock in ResponseCache Facade by @ricventu in https://github.com/spatie/laravel-responsecache/pull/492
+
+### New Contributors
+
+* @ricventu made their first contribution in https://github.com/spatie/laravel-responsecache/pull/492
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.4...7.6.5
+
+## 7.6.4 - 2025-02-25
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 5.0.1 to 5.1.0 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/487
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/488
+* Add compatibility for Laravel 12. by @mazedlx in https://github.com/spatie/laravel-responsecache/pull/490
+
+### New Contributors
+
+* @mazedlx made their first contribution in https://github.com/spatie/laravel-responsecache/pull/490
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.3...7.6.4
+
+## 7.6.3 - 2024-12-11
+
+### What's Changed
+
+* Fix ResponseCache Facade docblock for forget() by @alexcanana in https://github.com/spatie/laravel-responsecache/pull/486
+
+### New Contributors
+
+* @alexcanana made their first contribution in https://github.com/spatie/laravel-responsecache/pull/486
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.2...7.6.3
+
+## 7.6.2 - 2024-12-09
+
+### What's Changed
+
+* CsrfTokenReplacer avoid str_replace():  by @thyseus in https://github.com/spatie/laravel-responsecache/pull/482
+
+### New Contributors
+
+* @thyseus made their first contribution in https://github.com/spatie/laravel-responsecache/pull/482
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.1...7.6.2
+
+## 7.6.1 - 2024-11-18
+
+### What's Changed
+
+* Add PHPDoc for ResponseCache Facade by @alies-dev in https://github.com/spatie/laravel-responsecache/pull/485
+
+### New Contributors
+
+* @alies-dev made their first contribution in https://github.com/spatie/laravel-responsecache/pull/485
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.6.0...7.6.1
+
+## 7.6.0 - 2024-08-05
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 5.0.0 to 5.0.1 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/470
+* Fix incorrect grammar by @SebKay in https://github.com/spatie/laravel-responsecache/pull/472
+* Add missing Laravel 11.x Documentation by @omaratpxt in https://github.com/spatie/laravel-responsecache/pull/474
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.2.0 by @dependabot in https://github.com/spatie/laravel-responsecache/pull/475
+* Switch DefaultHasher to xxh128 for a faster alternative to MD5. by @marcell-ferenc in https://github.com/spatie/laravel-responsecache/pull/478
+
+### New Contributors
+
+* @SebKay made their first contribution in https://github.com/spatie/laravel-responsecache/pull/472
+* @omaratpxt made their first contribution in https://github.com/spatie/laravel-responsecache/pull/474
+* @marcell-ferenc made their first contribution in https://github.com/spatie/laravel-responsecache/pull/478
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.5.2...7.6.0
+
+## 7.5.2 - 2024-04-03
+
+### What's Changed
+
+* Cast cache lifetime to integer by default by @dwightwatson in https://github.com/spatie/laravel-responsecache/pull/468
+
+### New Contributors
+
+* @dwightwatson made their first contribution in https://github.com/spatie/laravel-responsecache/pull/468
+
+**Full Changelog**: https://github.com/spatie/laravel-responsecache/compare/7.5.1...7.5.2
+
 ## 7.5.1 - 2024-03-23
 
 - allow Carbon 3
